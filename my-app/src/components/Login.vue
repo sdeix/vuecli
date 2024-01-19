@@ -30,6 +30,7 @@ hr{
 
 <script>
 export default{
+
     data(){
         return{
             username: "",
@@ -41,9 +42,11 @@ export default{
             const userData = {
                 username:this.username,
                 password:this.password,
-            }
+            };
 
-            this.$store.dispatch(AUTH_REQUEST, userData).then(()=>this.$router.push("/"));
+        this.$store
+            .dispatch('AUTH_REQUEST', userData)
+            .then(()=>this.$router.push("/"));
         }
     }
 

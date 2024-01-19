@@ -24,11 +24,12 @@ export default createStore({
         .then((token) =>{
           commit('AUTH_SUCCESS',token);
           localStorage.setItem('myAppToken',token);
+          resolve();
         })
         .catch(()=> {
           commit('AUTH_ERROR');
           localStorage.removeItem('myAppToken');
-          reject();
+          reject("ОШИБКА");
         })
       }
 )}
